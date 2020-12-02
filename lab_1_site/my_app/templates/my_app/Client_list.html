@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head><link rel="stylesheet" href="{% static 'css/app.css'%}"></head>
+  <head>
+    <title>Сайт ломбарда</title>
+ </head>
+  <body>
+    <div>
+        <h1><a href="/">Домашняя страница</a></h1>
+    </div>
+    <div>
+        <h2>Здравствуй, Пользователь!</h2>
+    </div>
+    <div class="content container">
+       <div class="row">
+         <div class="col-md-8">
+       {% for Client in clients %}
+     <div class = "Client">
+         <p>Создано: {{ Client.сreated_date }}</p>
+         <h1> Имя: <a href="">{{ Client.Name }}</a></h1>
+         <h2> Фамилия: <a href="">{{ Client.Surname }}</a></h2>
+         <h3> Отчетсво: <a href="">{{ Client.Fathername}}</a></h3>
+         <h4> Адрес: {{ Client.Address}}</h4>
+         <h5> Номер телефона: {{ Client.Phone_number}} </h5>
+         <p>{{ Client.text|linebreaksbr }}</p>
+         </div>
+       {% endfor %}
+        </div>
+     </div>
+    </div>
+  </body>
+</html>
+
